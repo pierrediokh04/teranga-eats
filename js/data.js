@@ -1,4 +1,4 @@
- const dishes = [
+ export const dishes = [
   {
     id: 1,
     name: "Pastels",
@@ -124,5 +124,6 @@
   }
 ];
 
-console.log(dishes);
-console.log(dishes.length);
+export  function formatPrice(price){
+  return price.toLocaleString("fr-FR") + " F"; 
+}
