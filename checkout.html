@@ -1,54 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teranga Eats | checkout</title>
+  <title>Checkout — Teranga Eats</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-<a href="index.html" class="logo">Teranga Eats</a>
+  <header>
+    <a href="index.html" class="logo">Teranga <span>Eats</span></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+    </nav>
+    <a href="cart.html" class="cart-link">Cart <span id="cart-count">0</span></a>
+  </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="menu.html">Menu</a>
-    <a href="reservation.html">Book a table</a>
-  </nav>
+  <main>
+    <h1>Checkout</h1>
 
-  <a href="cart.html" class="cart-link">
-    Cart (<span id="cart-count">0</span>)
-  </a>
-</header>
+    <div class="steps">
+      <span class="step-label active">1 · Your info</span>
+      <span class="step-label">2 · Delivery</span>
+      <span class="step-label">3 · Payment</span>
+    </div>
+    <div class="progress"><div id="progress-bar"></div></div>
 
-<nav>
+    <form id="checkout" novalidate>
+      <section class="step" data-step="1">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" type="text" placeholder="Awa Diop">
+          <p class="error hidden" id="name-error">Enter your name (2 letters minimum)</p>
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" type="tel" placeholder="77 123 45 67">
+          <p class="error hidden" id="phone-error">Enter a valid phone number (9 digits)</p>
+        </div>
+        <div class="buttons">
+          <a href="cart.html" class="btn ghost">Back to cart</a>
+          <button type="button" class="btn" id="next-1">Next</button>
+        </div>
+      </section>
 
-</nav>
+      <section class="step hidden" data-step="2">
+        <label class="choice">
+          <input type="radio" name="mode" value="delivery" checked>
+          Delivery (+1 000 F, about 40 min)
+        </label>
+        <label class="choice">
+          <input type="radio" name="mode" value="pickup">
+          Pickup at the restaurant (free, about 20 min)
+        </label>
 
-<main>
+        <div class="field" id="address-field">
+          <label for="address">Delivery address</label>
+          <textarea id="address" placeholder="Point E, rue 3, near the pharmacy"></textarea>
+          <p class="error hidden" id="address-error">Enter your address (5 characters minimum)</p>
+        </div>
 
-</main>
+        <div class="buttons">
+          <button type="button" class="btn ghost back">Back</button>
+          <button type="button" class="btn" id="next-2">Next</button>
+        </div>
+      </section>
 
-<footer>
-     <section>
-    <h3>Contact</h3>
-    <p>Rue 10, Médina, Dakar</p>
-    <p>+221 77 000 00 00</p>
-  </section>
+      <section class="step hidden" data-step="3">
+        <label class="choice">
+          <input type="radio" name="pay" value="Cash" checked> Cash
+        </label>
+        <label class="choice">
+          <input type="radio" name="pay" value="Wave"> Wave
+        </label>
+        <label class="choice">
+          <input type="radio" name="pay" value="Orange Money"> Orange Money
+        </label>
 
-  <section>
-    <h3>Opening hours</h3>
-    <p>Every day, 12:00 – 23:00</p>
-  </section>
+        <h2>Your order</h2>
+        <div id="order-summary"></div>
 
-  <section>
-    <h3>Explore</h3>
-    <a href="menu.html">Menu</a>
-    <a href="reservation.html">Book a table</a>
-  </section>
+        <div class="buttons">
+          <button type="button" class="btn ghost back">Back</button>
+          <button type="submit" class="btn big">Place order</button>
+        </div>
+      </section>
+    </form>
+  </main>
 
-  <p>© 2026 Teranga Eats</p>  
-</footer>
+  <footer>
+    <span class="logo">Teranga <span>Eats</span></span>
+    <p>Dakar · 77 000 00 00 · Open 12h–23h</p>
+  </footer>
+
+  <script type="module" src="js/checkout.js"></script>
 </body>
+</html>

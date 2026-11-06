@@ -1,55 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teranga Eats | Menu</title>
+  <title>Menu — Teranga Eats</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-<a href="index.html" class="logo">Teranga Eats</a>
+  <header>
+    <a href="index.html" class="logo">Teranga <span>Eats</span></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html" class="active">Menu</a>
+    </nav>
+    <a href="cart.html" class="cart-link">Cart <span id="cart-count">0</span></a>
+  </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="menu.html">Menu</a>
-    <a href="reservation.html">Book a table</a>
-  </nav>
+  <main>
+    <h1>Our menu</h1>
 
-  <a href="cart.html" class="cart-link">
-    Cart (<span id="cart-count">0</span>)
-  </a>
-</header>
+    <div class="toolbar">
+      <div class="filters">
+        <button class="filter active" data-category="all">All</button>
+        <button class="filter" data-category="starters">Starters</button>
+        <button class="filter" data-category="mains">Mains</button>
+        <button class="filter" data-category="drinks">Drinks</button>
+        <button class="filter" data-category="desserts">Desserts</button>
+      </div>
+      <input type="search" id="search" placeholder="Search a dish">
+      <select id="sort">
+        <option value="default">Sort by</option>
+        <option value="low">Price: low → high</option>
+        <option value="high">Price: high → low</option>
+      </select>
+    </div>
 
-<nav>
+    <p id="no-result" class="hidden">No dish matches your search.</p>
+    <section id="menu-grid" class="grid"></section>
+  </main>
 
-</nav>
+  <footer>
+    <span class="logo">Teranga <span>Eats</span></span>
+    <p>Dakar · 77 000 00 00 · Open 12h–23h</p>
+  </footer>
 
-<main>
-  <section id="menu-grid" class="grid"></section>
-</main>
-
-<footer>
-     <section>
-    <h3>Contact</h3>
-    <p>Rue 10, Médina, Dakar</p>
-    <p>+221 77 000 00 00</p>
-  </section>
-
-  <section>
-    <h3>Opening hours</h3>
-    <p>Every day, 12:00 – 23:00</p>
-  </section>
-
-  <section>
-    <h3>Explore</h3>
-    <a href="menu.html">Menu</a>
-    <a href="reservation.html">Book a table</a>
-  </section>
-
-  <p>© 2026 Teranga Eats</p>  
-</footer>
-
+  <script type="module" src="js/menu.js"></script>
 </body>
+</html>
